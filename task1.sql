@@ -87,9 +87,15 @@ FROM
 WHERE
   (item_id = 42)
   AND (time > 100);
-  
+
 
 -- Task 7
   -- получить первые 20 строк из всех данных из таблиц с матчами и
   -- оплатами (purchase_log);
+SELECT * FROM match LIMIT 20;
 SELECT * FROM purchase_log LIMIT 20; -- They are in undefined order
+
+SELECT *
+FROM purchase_log
+  INNER JOIN match USING(match_id)
+LIMIT 20;
